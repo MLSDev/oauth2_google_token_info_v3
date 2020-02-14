@@ -28,7 +28,7 @@ module Oauth2GoogleTokenInfoV3
     #   "typ": "JWT"
     # }
     def response
-      @response ||= ::JSON.parse(::Net::HTTP.get(request_uri), symbolize_names: true)
+      @response ||= JSON.parse(Net::HTTP.get(request_uri), symbolize_names: true)
     rescue ::Net::OpenTimeout
       retry
     end
@@ -65,7 +65,7 @@ module Oauth2GoogleTokenInfoV3
     end
 
     def expire_at
-      @expire_at ||= ::Time.at(response.fetch(:exp).to_i).to_datetime
+      @expire_at ||= Time.at(response.fetch(:exp).to_i).to_datetime
     end
 
     def not_expired?
