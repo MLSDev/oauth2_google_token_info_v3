@@ -22,7 +22,25 @@ Or install it yourself as:
 
 ## Usage
 
-To use this tool, you will need to generate [`id_token`](https://developers.google.com/identity/sign-in/web/backend-auth#send-the-id-token-to-your-server)
+To use this tool, you will need to generate [`id_token`](https://developers.google.com/identity/sign-in/web/backend-auth#send-the-id-token-to-your-server).
+
+Then U can perform request to www.googleapis.com:
+
+```ruby
+r = Oauth2GoogleTokenInfoV3::HttpsRequest.new(id_token)
+
+r.response
+r.subject
+r.email
+r.hosted_domain
+r.given_name
+r.first_name
+r.last_name
+r.family_name
+r.locale
+r.expire_at
+r.not_expired?
+```
 
 ## Development
 
