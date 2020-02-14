@@ -1,3 +1,6 @@
+[![CircleCI](https://circleci.com/gh/MLSDev/oauth2_google_token_info_v3/tree/master.svg?style=svg)](https://circleci.com/gh/MLSDev/oauth2_google_token_info_v3/tree/master)
+
+
 # Oauth2GoogleTokenInfoV3
 
 Regarding to [this issue](https://github.com/googleapis/google-api-ruby-client/issues/596) `OAuth2_v3 ` is not implemented yet in [google-api-ruby-client](https://github.com/googleapis/google-api-ruby-client) gem.
