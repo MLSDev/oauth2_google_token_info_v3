@@ -59,3 +59,16 @@ The gem is available as open source under the terms of the [MIT License](https:/
 ## Code of Conduct
 
 Everyone interacting in the Oauth2GoogleTokenInfoV3 project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/MLSDev/oauth2_google_token_info_v3/blob/master/CODE_OF_CONDUCT.md).
+
+## About MLSDev
+
+![MLSdev][logo]
+
+The repo is maintained by MLSDev, Inc. We specialize in providing all-in-one solution in mobile and web development. Our team follows Lean principles and works according to agile methodologies to deliver the best results reducing the budget for development and its timeline.
+
+Find out more [here][mlsdev] and don't hesitate to [contact us][contact]!
+
+[mlsdev]:  https://mlsdev.com
+[contact]: https://mlsdev.com/contact_us
+[logo]:    https://raw.githubusercontent.com/MLSDev/development-standards/master/mlsdev-logo.png "Mlsdev"
+
