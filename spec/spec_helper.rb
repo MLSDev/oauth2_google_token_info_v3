@@ -1,5 +1,7 @@
 require "bundler/setup"
 require "oauth2_google_token_info_v3"
+require "webmock/rspec"
+require "rspec/its"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

@@ -2,8 +2,10 @@ module Oauth2GoogleTokenInfoV3
   class HttpsRequest
     attr_reader :jwt_id_token
 
+    GOOGLE_APIS_DOMAIN = "www.googleapis.com"
+
     def initialize jwt_id_token
-      @jwt_id_token = jwt_id_token.presence
+      @jwt_id_token = jwt_id_token
     end
 
     # {
@@ -28,7 +30,15 @@ module Oauth2GoogleTokenInfoV3
     #   "typ": "JWT"
     # }
     def response
-      @response ||= JSON.parse(Net::HTTP.get(request_uri), symbolize_names: true)
+      return @response if @response
+
+      Net::HTTP.start(request_uri.host, request_uri.port, use_ssl: true) do |http|
+        request = Net::HTTP::Get.new request_uri
+
+        @response = http.request(request).body
+      end
+
+      @response = JSON.parse(@response, symbolize_names: true)
     rescue ::Net::OpenTimeout
       retry
     end
@@ -65,20 +75,18 @@ module Oauth2GoogleTokenInfoV3
     end
 
     def expire_at
-      @expire_at ||= Time.at(response.fetch(:exp).to_i).to_datetime
+      @expire_at ||= Time.at(response.fetch(:exp).to_i).to_time
     end
 
     def not_expired?
-      expire_at.future?
+      expire_at > Time.now
     end
-
-    private
 
     #
     # https://developers.google.com/identity/sign-in/web/backend-auth#calling-the-tokeninfo-endpoint
     #
     def request_uri
-      @request_uri ||= URI("https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=#{ jwt_id_token }")
+      @request_uri ||= URI("https://#{ GOOGLE_APIS_DOMAIN }/oauth2/v3/tokeninfo?id_token=#{ jwt_id_token }")
     end
   end
 end
