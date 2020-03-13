@@ -46,6 +46,10 @@ module Oauth2GoogleTokenInfoV3
     def valid?
       !response.key?(:error_description)
     end
+    
+    def error_description
+      response[:error_description]
+    end
 
     def subject
       response.fetch(:sub)
