@@ -43,6 +43,10 @@ module Oauth2GoogleTokenInfoV3
       retry
     end
 
+    def valid?
+      !!response[:error_description]
+    end
+
     def subject
       response.fetch(:sub)
     end
