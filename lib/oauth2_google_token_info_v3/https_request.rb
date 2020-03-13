@@ -44,7 +44,7 @@ module Oauth2GoogleTokenInfoV3
     end
 
     def valid?
-      !!response[:error_description]
+      response.key?(:error_description)
     end
 
     def subject
