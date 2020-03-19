@@ -61,9 +61,10 @@ module Oauth2GoogleTokenInfoV3
     end
 
     def hosted_domain
-      response.fetch(:hd)
+      response.fetch(:hd, nil)
     end
-
+    alias_method :hd, :hosted_domain
+    
     def given_name
       response.fetch(:given_name)
     end
@@ -75,7 +76,7 @@ module Oauth2GoogleTokenInfoV3
     alias_method :last_name, :family_name
 
     def email_verified?
-      response.fetch(:email_verified) == 'true'
+      response.fetch(:email_verified, nil) == 'true'
     end
 
     def locale
