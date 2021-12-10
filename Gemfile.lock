@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    oauth2_google_token_info_v3 (0.0.1)
+    oauth2_google_token_info_v3 (0.0.7)
 
 GEM
   remote: https://rubygems.org/
