@@ -14,6 +14,7 @@ GEM
     hashdiff (1.0.0)
     public_suffix (4.0.6)
     rake (13.0.1)
+    rexml (3.2.5)
     rspec (3.9.0)
       rspec-core (~> 3.9.0)
       rspec-expectations (~> 3.9.0)
@@ -43,6 +44,7 @@ DEPENDENCIES
   bundler
   oauth2_google_token_info_v3!
   rake
+  rexml
   rspec
   rspec-its
   webmock
