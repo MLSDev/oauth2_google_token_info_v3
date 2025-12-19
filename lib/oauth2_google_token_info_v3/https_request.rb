@@ -1,3 +1,7 @@
+require 'uri'
+require 'net/http'
+require 'json'
+
 module Oauth2GoogleTokenInfoV3
   class HttpsRequest
     attr_reader :jwt_id_token
@@ -46,7 +50,7 @@ module Oauth2GoogleTokenInfoV3
     def valid?
       !response.key?(:error_description)
     end
-    
+
     def error_description
       response[:error_description]
     end
@@ -64,7 +68,7 @@ module Oauth2GoogleTokenInfoV3
       response.fetch(:hd, nil)
     end
     alias_method :hd, :hosted_domain
-    
+
     def given_name
       response.fetch(:given_name)
     end
@@ -84,7 +88,7 @@ module Oauth2GoogleTokenInfoV3
     end
 
     def expire_at
-      @expire_at ||= Time.at(response.fetch(:exp).to_i).to_time
+      @expire_at ||= Time.at(response.fetch(:exp).to_i)
     end
 
     def not_expired?
