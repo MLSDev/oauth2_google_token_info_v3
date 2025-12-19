@@ -1,5 +1,6 @@
 [![CircleCI](https://circleci.com/gh/MLSDev/oauth2_google_token_info_v3/tree/master.svg?style=svg)](https://circleci.com/gh/MLSDev/oauth2_google_token_info_v3/tree/master)
 
+[outdated]
 
 # Oauth2GoogleTokenInfoV3
 
@@ -74,4 +75,3 @@ Find out more [here][mlsdev] and don't hesitate to [contact us][contact]!
 [mlsdev]:  https://mlsdev.com
 [contact]: https://mlsdev.com/contact_us
 [logo]:    https://raw.githubusercontent.com/MLSDev/development-standards/master/mlsdev-logo.png "Mlsdev"
-
